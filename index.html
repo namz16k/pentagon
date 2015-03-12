@@ -1,42 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="pentagon">
     <head>
-      <title>Pentagon</title>
-    <meta charset="utf-8"> 
+        <title>Pentagon</title>
+        <meta charset="utf-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
-      <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="css/image.css">
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!-- Latest compiled and minified CSS 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> -->
+        <link rel="stylesheet" href=" https://bootswatch.com/darkly/bootstrap.min.css"> 
+        
+       
+        <link rel="stylesheet" href="css/image.css">
 
-<!-- Latest compiled JavaScript -->
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-  </head>
+       
+        
+    </head>
+    
 <body>
     <div class="container">
-        
-        
         <div class="site-container" class="img-rounded">
-                <div class="row">
-            <div class="col-sm-6" ><img   class="img-rounded" class="img-responsive" src="images/logo.jpg"></div>
-             <div class="col-sm-6" ></div>
-        
-        </div>
-        
-    <ul class="nav nav-tabs">
-        <li class="active"><a>Menu1</a></li>
-        <li><a>Menu1</a></li>
-        <li><a>Menu1</a></li>
-        <li><a>Menu1</a></li>
-    
-    </ul>
-        
-        
-        </div>
-        
+            <div class="row">
+                <div class="col-sm-3" ><img   class="img-rounded" class="img-responsive" src="images/logo.jpg"></div>
+                <div class="col-sm-9" >
+                    <div class="page-header">
+                        <h3>Raj's</h3><h1>Pentagon</h1>
+                        <p>Eat food the pentagon way !!</p>
+                    </div>
+                
+                </div>
+            </div>
+            <br>
+            
+            <section ng-controller="PanelController as panel">
+                <ul class="nav nav-tabs" >
+                    <li ng-class="{active:panel.isTab(1)}"><a ng-click="panel.selectTab(1)">Home</a></li>
+                    <li ng-class="{active:panel.isTab(2)}"><a ng-click="panel.selectTab(2)">About Us</a></li>
+                    <li ng-class="{active:panel.isTab(3)}"><a ng-click="panel.selectTab(3)">Events</a></li>
+                    <li ng-class="{active:panel.isTab(4)}"><a ng-click="panel.selectTab(4)">Photo Gallery</a></li>
+                    <li ng-class="{active:panel.isTab(5)}"><a ng-click="panel.selectTab(5)">Menu</a></li>
+                    <li ng-class="{active:panel.isTab(6)}"><a ng-click="panel.selectTab(6)">Contact Us</a></li>                    
+                </ul>
+                <div class="panel" ng-show="panel.isTab(1)">
+                
+                </div>
+                <div class="panel" ng-show="panel.isTab(2)">
+                    <div class="row">
+                    <div class="col-sm-4" ><img ng-src="images/aboutUs.jpg" class="img-rounded"/></div>
+                    <div class="col-sm-8" >
+                        <h4>About us :</h4><blockquote>{{panel.panelData[0].aboutUs}}</blockquote>
+                        <h4>About our food :</h4><blockquote>{{panel.panelData[0].aboutFood}}</blockquote>                        
+                    </div>
+                        
+                    </div>
+                    
+                    
+                </div>
+            
+            </section>
 
+            
+            
+            
+        </div>
     </div>
+    
+    <script src= "pentagon.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script src="js/app.js" type="text/javascript"></script>
 </body>
     
 </html>
